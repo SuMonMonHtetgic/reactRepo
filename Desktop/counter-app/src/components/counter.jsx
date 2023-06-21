@@ -11,6 +11,11 @@ class Counter extends Component {
         fontWeight: "bold",
         fontFamily: "cursive"
     };
+
+    // constructor(){
+    //     super();
+    //     this.handleIncrement =  this.handleIncrement.bind(this);
+    // }
     
     render() { 
         // let classes = this.getBadgeClasses();
@@ -37,9 +42,11 @@ class Counter extends Component {
        
     }
     
-    handleIncrement(){
-        console.log('Increment clicked', this.state.count)
-    }
+    handleIncrement = () => {
+        // console.log('Increment clicked', this)
+        this.state.count++;
+        this.setState({ count: this.state.count });
+    };
 
     renderTags(){
         if (this.state.tags.length === 0) return <p>There are no tags</p>;
